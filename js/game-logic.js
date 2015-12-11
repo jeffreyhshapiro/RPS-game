@@ -1,14 +1,5 @@
 $(document).ready(function(){
 
-  //Set counter to beginning variables
-
-  /*var gameState = {
-    "userScore":0, 
-    "computerScore":0, 
-    "ties":0, 
-    "roundCount":1
-  }*/
-
   //Generate a random choice for computer
   var choices = ["rock", "paper", "scissor"]
 
@@ -71,7 +62,7 @@ $(document).ready(function(){
       RPS.gameState.ties++;
       console.log(ties);
       $("#ties").html(RPS.gameState.ties);
-      
+
     }
     RPS.gameState.roundCount++;
     $("#roundNumber").html(RPS.gameState.roundCount);
