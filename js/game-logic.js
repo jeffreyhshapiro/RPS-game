@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   //Generate a random choice for computer
-  var choices = ["rock", "paper", "scissor"]
+  var choices = ["rock", "paper", "scissors"]
 
   //Get the value of users button click
 
@@ -10,64 +10,70 @@ $(document).ready(function(){
     console.log(userChoice);
     var computerChoice = Math.floor(Math.random() * choices.length)
     console.log(choices[computerChoice]);
-    var tagName = $(this).data("type");
 
     //Logic behind wins
 
     if (userChoice === "rock" && choices[computerChoice]  === "paper") {
-      alert("Computer wins")
-      //computerScore++
+      rockPaper();
+      //alert("Computer wins")
       RPS.gameState.computerScore++;
       console.log(RPS.gameState.computerScore);
       $("#computerScore").html(RPS.gameState.computerScore);
+      $("#outcome").html("Computer wins!");
 
     } else if (userChoice === "rock" && choices[computerChoice]  === "scissor") {
-      alert("You win")
-      //userScore++
+      rockScissor();
+      //alert("You win")
       RPS.gameState.userScore++;
       console.log(RPS.gameState.userScore);
       $("#userScore").html(RPS.gameState.userScore);
+      $("#outcome").html("You win!");
 
     } else if (userChoice === "paper" && choices[computerChoice]  === "rock") {
-      alert("You win")
-      //userScore++
+      paperRock();
+      //alert("You win")
       RPS.gameState.userScore++
       console.log(RPS.gameState.userScore);
       $("#userScore").html(RPS.gameState.userScore);
+      $("#outcome").html("You win!");
 
     } else if (userChoice === "paper" && choices[computerChoice]  === "scissor") {
-      alert("Computer win")
-      //computerScore++
+      paperScissor();
+      //alert("Computer win")
       RPS.gameState.computerScore++;
       console.log(RPS.gameState.computerScore);
       $("#computerScore").html(RPS.gameState.computerScore);
+      $("#outcome").html("Computer wins!");
 
     } else if (userChoice === "scissor" && choices[computerChoice]  === "rock") {
-      alert("Computer win")
-      //computerScore++
+      scissorRock();
+      //alert("Computer win")
       RPS.gameState.computerScore++
       console.log(RPS.gameState.computerScore);
       $("#computerScore").html(RPS.gameState.computerScore);
+      $("#outcome").html("Computer wins!");
 
     } else if (userChoice === "scissor" && choices[computerChoice]  === "paper") {
-      alert("You win")
-      //userScore++
+      scissorPaper();
+      //alert("You win")
       RPS.gameState.userScore++
       console.log(RPS.gameState.userScore);
       $("#userScore").html(RPS.gameState.userScore);
+      $("#outcome").html("You win!");
 
     } else {
-      //Tie
-      alert("Tie!")
+      //alert("Tie!")
       RPS.gameState.ties++;
       console.log(ties);
       $("#ties").html(RPS.gameState.ties);
+      $("#outcome").html("Tie!");
 
     }
+
     RPS.gameState.roundCount++;
     $("#roundNumber").html(RPS.gameState.roundCount);
     console.log(RPS.gameState.roundCount);
-  });
 
+  });
 
 });

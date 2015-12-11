@@ -5,7 +5,8 @@
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../css/main-page-format.css">
 <div class="container">
   <div class="row">
     <h3 id="header">Rock, paper scissors</h3>
@@ -19,17 +20,39 @@
     <div class="col-md-4">
       <button class="btn btn-block" data-choice="scissor">Scissor</button>
     </div>
-    <div>
-      <span>Your score: </span> <span id="userScore" data-type="userScore">0</span>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-md-6">
+      <div>
+        <i class="fa fa-hand-lizard-o" id="user"></i>
+      </div>
     </div>
-    <div>
-      <span>Computer score: </span><span id="computerScore" data-type="computerScore">0</span>
+    <div class="col-md-6">
+      <div>
+        <i class="fa fa-hand-lizard-o" id="computer"></i>
+      </div>
     </div>
-    <div>
-      <span>Ties: </span><span id="ties" data-type="ties">0</span>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-md-3">
+      <span>Your score: </span> <span id="userScore">0</span>
     </div>
-    <div>
-      <span>Round: </span><span id="roundNumber" data-type="roundNumber">1</span>
+    <div class="col-md-3">
+      <span>Computer score: </span><span id="computerScore">0</span>
+    </div>
+    <div class="col-md-3">
+      <span>Ties: </span><span id="ties">0</span>
+    </div>
+    <div class="col-md-3">
+      <span>Round: </span><span id="roundNumber">1</span>
+    </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="outcome"></div>
     </div>
   </div>
 </div>
@@ -38,5 +61,6 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="../js/game-logic.js"></script>
 <script type="text/javascript" src="../js/game-counter.js"></script>
+<script type="text/javascript" src="../js/icons-and-animation.js"></script>
 </body>
 </html>
