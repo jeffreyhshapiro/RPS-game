@@ -20,16 +20,16 @@
       <button class="btn btn-block" data-choice="scissor">Scissor</button>
     </div>
     <div>
-      <p>Your score: 0</p>
+      <span>Your score: </span> <span id="userScore" data-type="userScore">0</span>
     </div>
     <div>
-      <p>Computer score: 0</p>
+      <span>Computer score: </span><span id="computerScore" data-type="computerScore">0</span>
     </div>
     <div>
-      <p>Ties: 0</p>
+      <span>Ties: </span><span id="ties" data-type="ties">0</span>
     </div>
     <div>
-      <p>Round: 1</p>
+      <span>Round: </span><span id="roundNumber" data-type="roundNumber">1</span>
     </div>
   </div>
 </div>
@@ -37,5 +37,6 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="../js/game-logic.js"></script>
+<script type="text/javascript" src="../js/game-counter.js"></script>
 </body>
 </html>
