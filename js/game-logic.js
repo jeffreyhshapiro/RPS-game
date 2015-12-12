@@ -84,7 +84,38 @@ $(document).ready(function(){
     console.log(RPS.gameState.roundCount);
 
     if (RPS.gameState.roundCount === 10) {
-      alert("Nice job!");
+      $("#outcome").html("Game over!")
+        if (RPS.gameState.userScore > RPS.gameState.computerScore) {
+          $("#outcome").append("<div>You won! Much honor!</div>")
+        } else if (RPS.gameState.ties > RPS.gameState.computerScore && RPS.gameState.userScore) {
+          $("#outcome").append("<div>No winners here.</div>")
+        } else if (RPS.gameState.userScore < RPS.gameState.computerScore) {
+          $("#outcome").append("<div>You lost. Great dishonor.</div>")
+        } 
+
+    $(".btn-primary").unbind();
+    $("#reset-button").addClass("btn btn-danger btn-block").append("Play again!");
+    $("#reset-button").on("click", function(){
+
+    RPS.gameState.userScore = 0
+    RPS.gameState.computerScore = 0
+    RPS.gameState.ties = 0
+    RPS.gameState.roundCount = 1
+
+    $("#userScore").html(RPS.gameState.userScore);
+    $("#computerScore").html(RPS.gameState.computerScore);
+    $("#ties").html(RPS.gameState.ties);
+    $("#roundNumber").html(RPS.gameState.roundCount);
+
+    $(".btn-primary").bind();
+    $("#outcome").remove();
+    $("#reset-button").remove();
+
+    });
+
+
+
+    
     };
 
   });
