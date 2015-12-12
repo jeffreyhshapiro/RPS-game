@@ -9,16 +9,16 @@
 <link rel="stylesheet" type="text/css" href="../css/main-page-format.css">
 <div class="container">
   <div class="row">
-    <h3 id="header">Rock, paper scissors</h3>
-    <p>Choose rock, paper or scissor!</p>
+    <!--<h3 id="header">Rock, Paper, Scissors</h3>-->
+    <br><br>
     <div class="col-md-4">
-      <button class="btn btn-block" data-choice="rock">Rock</button>
+      <button class="btn btn-primary" data-choice="rock">ROCK</button>
     </div>
     <div class="col-md-4">
-      <button class="btn btn-block" data-choice="paper">Paper</button>
+      <button class="btn btn-primary" data-choice="paper">PAPER</button>
     </div>
     <div class="col-md-4">
-      <button class="btn btn-block" data-choice="scissors">Scissor</button>
+      <button class="btn btn-primary" data-choice="scissors">SCISSOR</button>
     </div>
   </div>
   <br><br>
@@ -36,18 +36,22 @@
   </div>
   <br><br>
   <div class="row">
-    <div class="col-md-3">
-      <span>Your score: </span> <span id="userScore">0</span>
-    </div>
-    <div class="col-md-3">
-      <span>Computer score: </span><span id="computerScore">0</span>
-    </div>
-    <div class="col-md-3">
-      <span>Ties: </span><span id="ties">0</span>
-    </div>
-    <div class="col-md-3">
-      <span>Round: </span><span id="roundNumber">1</span>
-    </div>
+    <table id="tracking-table">
+      <thead>
+        <th>YOUR SCORE</th>
+        <th>COMPUTER SCORE</th>
+        <th>TIES</th>
+        <th>ROUND NUMBER</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="userScore">0</td>
+          <td id="computerScore">0</td>
+          <td id="ties">0</td>
+          <td id="roundNumber">1</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <br><br>
   <div class="row">
@@ -56,7 +60,6 @@
     </div>
   </div>
 </div>
-
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="../js/game-logic.js"></script>

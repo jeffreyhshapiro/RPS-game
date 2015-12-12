@@ -1,11 +1,11 @@
 $(document).ready(function(){
-  
+
   //Generate a random choice for computer
   var choices = ["rock", "paper", "scissors"]
 
   //Get the value of users button click
 
-  $(".btn-block").on("click", function(){
+  $(".btn-primary").on("click", function(){
     var userChoice = $(this).attr("data-choice");
     console.log(userChoice);
     var computerChoice = Math.floor(Math.random() * choices.length)
@@ -82,6 +82,10 @@ $(document).ready(function(){
     RPS.gameState.roundCount++;
     $("#roundNumber").html(RPS.gameState.roundCount);
     console.log(RPS.gameState.roundCount);
+
+    if (RPS.gameState.roundCount === 10) {
+      alert("Nice job!");
+    };
 
   });
 
