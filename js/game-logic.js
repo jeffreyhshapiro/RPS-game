@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+  
   //Generate a random choice for computer
   var choices = ["rock", "paper", "scissors"]
 
@@ -21,9 +21,8 @@ $(document).ready(function(){
       $("#computerScore").html(RPS.gameState.computerScore);
       $("#outcome").html("Computer wins!");
 
-    } else if (userChoice === "rock" && choices[computerChoice]  === "scissor") {
+    } else if (userChoice === "rock" && choices[computerChoice]  === "scissors") {
       rockScissor();
-      //alert("You win")
       RPS.gameState.userScore++;
       console.log(RPS.gameState.userScore);
       $("#userScore").html(RPS.gameState.userScore);
@@ -31,38 +30,48 @@ $(document).ready(function(){
 
     } else if (userChoice === "paper" && choices[computerChoice]  === "rock") {
       paperRock();
-      //alert("You win")
       RPS.gameState.userScore++
       console.log(RPS.gameState.userScore);
       $("#userScore").html(RPS.gameState.userScore);
       $("#outcome").html("You win!");
 
-    } else if (userChoice === "paper" && choices[computerChoice]  === "scissor") {
+    } else if (userChoice === "paper" && choices[computerChoice]  === "scissors") {
       paperScissor();
-      //alert("Computer win")
       RPS.gameState.computerScore++;
       console.log(RPS.gameState.computerScore);
       $("#computerScore").html(RPS.gameState.computerScore);
       $("#outcome").html("Computer wins!");
 
-    } else if (userChoice === "scissor" && choices[computerChoice]  === "rock") {
+    } else if (userChoice === "scissors" && choices[computerChoice]  === "rock") {
       scissorRock();
-      //alert("Computer win")
       RPS.gameState.computerScore++
       console.log(RPS.gameState.computerScore);
       $("#computerScore").html(RPS.gameState.computerScore);
       $("#outcome").html("Computer wins!");
 
-    } else if (userChoice === "scissor" && choices[computerChoice]  === "paper") {
+    } else if (userChoice === "scissors" && choices[computerChoice]  === "paper") {
       scissorPaper();
-      //alert("You win")
       RPS.gameState.userScore++
       console.log(RPS.gameState.userScore);
       $("#userScore").html(RPS.gameState.userScore);
       $("#outcome").html("You win!");
 
-    } else {
-      //alert("Tie!")
+    } else if (userChoice === "rock" && choices[computerChoice]  === "rock") {
+      rockRock();
+      RPS.gameState.ties++;
+      console.log(ties);
+      $("#ties").html(RPS.gameState.ties);
+      $("#outcome").html("Tie!");
+
+    } else if (userChoice === "paper" && choices[computerChoice]  === "paper") {
+      paperPaper();
+      RPS.gameState.ties++;
+      console.log(ties);
+      $("#ties").html(RPS.gameState.ties);
+      $("#outcome").html("Tie!");
+
+    } else if (userChoice === "scissors" && choices[computerChoice]  === "scissors") {
+      scissorScissor();
       RPS.gameState.ties++;
       console.log(ties);
       $("#ties").html(RPS.gameState.ties);
