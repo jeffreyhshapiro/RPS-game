@@ -54,16 +54,17 @@ function gameLogic(userChoice, computerChoice){
       roundIncrement();
 
     if (RPS.gameState.roundCount === 10) {
-      $("#outcome").html("Game over!");
+      $("#outcome").html("Game over.");
         if (RPS.gameState.userScore > RPS.gameState.computerScore) {
-          $("#outcome").append("<div>You won! Much honor!</div>");
+          $("#outcome").append(" You won! Much honor!");
         } else if (RPS.gameState.ties > RPS.gameState.computerScore && RPS.gameState.userScore) {
-          $("#outcome").append("<div>No winners here.</div>");
+          $("#outcome").append(" No winners here.");
         } else if (RPS.gameState.userScore < RPS.gameState.computerScore) {
-          $("#outcome").append("<div>You lost. Great dishonor.</div>");
+          $("#outcome").append(" You lost. Great dishonor.");
         }
 
     $(".btn-primary").unbind();
+    $(".btn-primary").hide();
     $("#reset-button").addClass("btn btn-danger btn-block").append("Play again!");
     $("#reset-button").show();
     
@@ -107,6 +108,7 @@ function restoreDefault(){
   $("#outcome").empty();
   $("#reset-button").empty().hide();
   $(".btn-primary").bind();
+  $(".btn-primary").show();
   bindControls();
 };
 
