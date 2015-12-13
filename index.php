@@ -1,1 +1,1 @@
-<?php include_once("/html/RPS-style-game.html"); ?>
+<?php include_once("html/RPS-style-game.html"); ?>
