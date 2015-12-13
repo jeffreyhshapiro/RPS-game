@@ -116,7 +116,7 @@ function restoreDefaultScores(){
   RPS.gameState.userScore = 0;
   RPS.gameState.computerScore = 0;
   RPS.gameState.ties = 0;
-  RPS.gameState.roundCount = 1;
+  RPS.gameState.roundCount = 0;
   $("#userScore").html(RPS.gameState.userScore);
   $("#computerScore").html(RPS.gameState.computerScore);
   $("#ties").html(RPS.gameState.ties);
