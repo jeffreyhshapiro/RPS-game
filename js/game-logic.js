@@ -102,7 +102,6 @@ function roundIncrement() {
 //Restore default settings after game play
 
 function restoreDefault(){
-  debugger;
   restoreDefaultScores();
   lizardLizard();
   $("#outcome").empty();
