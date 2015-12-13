@@ -14,6 +14,7 @@
   
   bindControls();
 
+
 function gameLogic(userChoice, computerChoice){
 
       //Logic behind wins
@@ -55,9 +56,8 @@ function gameLogic(userChoice, computerChoice){
         tie();
 
       }
-      RPS.gameState.roundCount++;
-      $("#roundNumber").html(RPS.gameState.roundCount);
-      console.log(RPS.gameState.roundCount);  
+
+      roundCount();
 
     if (RPS.gameState.roundCount === 10) {
       $("#outcome").html("Game over!");
@@ -71,6 +71,7 @@ function gameLogic(userChoice, computerChoice){
 
     $(".btn-primary").unbind();
     $("#reset-button").addClass("btn btn-danger btn-block").append("Play again!");
+    $("#reset-button").show();
     $(document).on("click", "#reset-button", function(){
       restoreDefault();
     });
@@ -100,6 +101,13 @@ function tie(){
   $("#outcome").html("Tie!");
 };
 
+function roundCount() {
+  debugger;
+  RPS.gameState.roundCount++;
+  $("#roundNumber").html(RPS.gameState.roundCount);
+  console.log(RPS.gameState.roundCount);  
+};
+
 //Restore default settings after game play
 
 function restoreDefault(){
@@ -113,6 +121,7 @@ function restoreDefault(){
   $("#roundNumber").html(RPS.gameState.roundCount);
   lizardLizard();
   $("#outcome").empty();
-  $("#reset-button").remove();
+  $("#reset-button").empty().hide();
   $(".btn-primary").bind();
+  bindControls();
 };
