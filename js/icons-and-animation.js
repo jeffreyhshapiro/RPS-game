@@ -59,5 +59,11 @@ var scissorScissor = function(){
    $("#user").addClass("fa-hand-scissors-o");
    $("#computer").removeClass("fa-hand-lizard-o fa-hand-rock-o fa-hand-paper-o fa-hand-scissors-o");
    $("#computer").addClass("fa-hand-scissors-o");
+};
 
+var lizardLizard = function(){
+   $("#user").removeClass("fa-hand-lizard-o fa-hand-rock-o fa-hand-paper-o fa-hand-scissors-o");
+   $("#user").addClass("fa-hand-lizard-o");
+   $("#computer").removeClass("fa-hand-lizard-o fa-hand-rock-o fa-hand-paper-o fa-hand-scissors-o");
+   $("#computer").addClass("fa-hand-lizard-o");
 };
