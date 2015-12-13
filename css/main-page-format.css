@@ -18,6 +18,7 @@
 #outcome {
   text-align: center;
   font-size: 1.5em;
+  height: 30px;
 }
 
 table, th, td {
@@ -34,6 +35,10 @@ th, td {
   margin-left: auto;
   margin-right: auto;
   font-size: 1.4em;
+}
+
+#reset-button {
+  margin-top: 20px;
 }
 
 .btn-primary {
