@@ -1,0 +1,1 @@
+<?php include_once("/html/RPS-style-game.html"); ?>
