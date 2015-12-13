@@ -14,6 +14,9 @@
   
   bindControls();
 
+  $(document).on("click", "#reset-button", function(){
+      restoreDefault();
+    })
 
 function gameLogic(userChoice, computerChoice){
 
@@ -63,10 +66,8 @@ function gameLogic(userChoice, computerChoice){
     $(".btn-primary").unbind();
     $("#reset-button").addClass("btn btn-danger btn-block").append("Play again!");
     $("#reset-button").show();
-    $(document).on("click", "#reset-button", function(){
-      restoreDefault();
-    });
-  };
+    
+  }
 }; 
 
 //Functions for win type
@@ -101,6 +102,7 @@ function roundIncrement() {
 //Restore default settings after game play
 
 function restoreDefault(){
+  debugger;
   restoreDefaultScores();
   lizardLizard();
   $("#outcome").empty();
