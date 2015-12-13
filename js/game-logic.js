@@ -22,42 +22,33 @@ function gameLogic(userChoice, computerChoice){
       if (userChoice === "rock" && choices[computerChoice]  === "paper") {
         rockPaper();
         computerWin();
-
       } else if (userChoice === "rock" && choices[computerChoice]  === "scissors") {
         rockScissor();
         userWin();
-
       } else if (userChoice === "paper" && choices[computerChoice]  === "rock") {
         paperRock();
         userWin();
-
       } else if (userChoice === "paper" && choices[computerChoice]  === "scissors") {
         paperScissor();
         computerWin();
-
       } else if (userChoice === "scissors" && choices[computerChoice]  === "rock") {
         scissorRock();
         computerWin();
-
       } else if (userChoice === "scissors" && choices[computerChoice]  === "paper") {
         scissorPaper();
         userWin();
-
       } else if (userChoice === "rock" && choices[computerChoice]  === "rock") {
         rockRock();
         tie();
-
       } else if (userChoice === "paper" && choices[computerChoice]  === "paper") {
         paperPaper();
         tie();
-
       } else if (userChoice === "scissors" && choices[computerChoice]  === "scissors") {
         scissorScissor();
         tie();
-
       }
 
-      roundCount();
+      roundIncrement();
 
     if (RPS.gameState.roundCount === 10) {
       $("#outcome").html("Game over!");
@@ -101,16 +92,26 @@ function tie(){
   $("#outcome").html("Tie!");
 };
 
-function roundCount() {
-  debugger;
+function roundIncrement() {
   RPS.gameState.roundCount++;
   $("#roundNumber").html(RPS.gameState.roundCount);
-  console.log(RPS.gameState.roundCount);  
+  console.log(RPS.gameState.roundCount);
 };
 
 //Restore default settings after game play
 
 function restoreDefault(){
+  restoreDefaultScores();
+  lizardLizard();
+  $("#outcome").empty();
+  $("#reset-button").empty().hide();
+  $(".btn-primary").bind();
+  bindControls();
+};
+
+//Restore default scores to original values
+
+function restoreDefaultScores(){
   RPS.gameState.userScore = 0;
   RPS.gameState.computerScore = 0;
   RPS.gameState.ties = 0;
@@ -119,9 +120,4 @@ function restoreDefault(){
   $("#computerScore").html(RPS.gameState.computerScore);
   $("#ties").html(RPS.gameState.ties);
   $("#roundNumber").html(RPS.gameState.roundCount);
-  lizardLizard();
-  $("#outcome").empty();
-  $("#reset-button").empty().hide();
-  $(".btn-primary").bind();
-  bindControls();
 };
