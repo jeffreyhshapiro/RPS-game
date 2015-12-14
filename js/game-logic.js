@@ -23,6 +23,7 @@ function gameLogic(userChoice, computerChoice){
       //Logic behind wins
 
       if (userChoice === "rock" && choices[computerChoice]  === "paper") {
+        computerThinking();
         rockPaper();
         computerWin();
       } else if (userChoice === "rock" && choices[computerChoice]  === "scissors") {

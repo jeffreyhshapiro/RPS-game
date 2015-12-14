@@ -69,3 +69,7 @@ var lizardLizard = function(){
 
 };
 
+/*function computerThinking(){
+  debugger;
+  $("#computer").removeClass("fa-hand-lizard-o fa-hand-rock-o fa-hand-paper-o fa-hand-scissors-o").addClass("fa-hand-rock-o").delay(250).fadeOut(1000).addClass("fa-hand-paper-o").fadeIn(1000).delay(200).fadeOut(1000);
+};*/
