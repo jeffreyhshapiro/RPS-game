@@ -1,6 +1,10 @@
   //Generate a random choice for computer
   var choices = ["rock", "paper", "scissors"];
 
+  //var for endgame issue
+
+  var gameEnd = $(this).attr("data-reset");
+
  //Get the value of users button click
   function bindControls(){
     $(".btn-primary").on("click", function(){
@@ -14,16 +18,23 @@
   
   bindControls();
 
-  $(document).on("click", "#reset-button", function(){
+  $("#reset-button").on("click", function(){
       restoreDefault();
-    })
+      RPS.gameState.totalGamesPlayed++
+      console.log(RPS.gameState.totalGamesPlayed);
+    });
+
+  $("#end-game").on("click", function(){
+    endGame();
+    $("#end-game").empty().hide();
+  });
 
 function gameLogic(userChoice, computerChoice){
 
       //Logic behind wins
 
       if (userChoice === "rock" && choices[computerChoice]  === "paper") {
-        computerThinking();
+        //computerThinking();
         rockPaper();
         computerWin();
       } else if (userChoice === "rock" && choices[computerChoice]  === "scissors") {
@@ -54,23 +65,35 @@ function gameLogic(userChoice, computerChoice){
 
       roundIncrement();
 
-    if (RPS.gameState.roundCount === 10) {
+    if (RPS.gameState.roundCount === 5) {
       $("#outcome").html("Game over.");
         if (RPS.gameState.userScore > RPS.gameState.computerScore) {
           $("#outcome").append(" You won! Much honor!");
+          RPS.gameState.totalUserWins++
+          console.log(RPS.gameState.totalUserWins);
         } else if (RPS.gameState.ties > RPS.gameState.computerScore && RPS.gameState.userScore) {
           $("#outcome").append(" No winners here.");
+          RPS.gameState.totalTies++
+          console.log(RPS.gameState.totalTies);
         } else if (RPS.gameState.userScore < RPS.gameState.computerScore) {
           $("#outcome").append(" You lost. Great dishonor.");
+          RPS.gameState.totalComputerWins++
+          console.log(RPS.gameState.totalComputerWins);
         }
 
     $(".btn-primary").unbind();
     $(".btn-primary").hide();
     $("#reset-button").addClass("btn btn-danger btn-block").append("Play again!");
     $("#reset-button").show();
-    
-  }
+    };
+    //After playing three games, the user has the option of ending the game completely but can continue playing to their hearts content
+
+    if (RPS.gameState.totalUserWins + RPS.gameState.totalComputerWins + RPS.gameState.totalTies == 5) {
+      $("#reset-button").empty().hide();
+      $("#end-game").addClass("btn btn-success btn-block").append("The time has come to gracefully bow out");
+    }
 }; 
+
 
 //Functions for win type
 
@@ -125,3 +148,20 @@ function restoreDefaultScores(){
   $("#ties").html(RPS.gameState.ties);
   $("#roundNumber").html(RPS.gameState.roundCount);
 };
+
+function endGame(){
+  $("#end-game-modal").modal();
+  lizardLizard();
+  $("#outcome").empty();
+  $("#reset-button").empty().hide();
+  $("#end-game").empty().hide();
+  if (RPS.gameState.totalUserWins > RPS.gameState.totalComputerWins) {
+    $("#final-stats").append("Congratulations, you won!  You won " +RPS.gameState.totalUserWins+ " games, and the computer won " +RPS.gameState.totalComputerWins+ " games.  Skynet remains at bay.")
+  } else if (RPS.gameState.totalUserWins < RPS.gameState.totalComputerWins) {
+    $("#final-stats").append("I regret to report that you lost.  Skynet won " +RPS.gameState.totalComputerWins+ " games and you won " +RPS.gameState.totalUserWins+ " games.  You should make sure your computer is protected before the advent of the machines.")
+  };
+};
+
+$("#modal-close").on("click", function(){
+  $("#outcome").html("Thank you for playing!");
+});
